@@ -65,3 +65,5 @@
     queryObj.name
     queryObj.email
   ```
+- How to install `React dev tools`
+  - Hint: `npm i @tanstack/react-query-devtools@4.28`
