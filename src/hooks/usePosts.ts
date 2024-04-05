@@ -7,15 +7,20 @@ interface Post {
 }
 
 
-function usePosts() {
-    const fetchPosts = () => {
-        return axios.get<Post[]>("https://jsonplaceholder.typicode.com/posts")
+function usePosts(userId: number | undefined) {
+    const fetchPosts = (userId: number | undefined) => {
+        return axios.get<Post[]>("https://jsonplaceholder.typicode.com/posts", {
+            params: {
+                userId
+            }
+        })
             .then(res => res.data)
     }
 
     const { data, error, isLoading } = useQuery<Post[], Error>({
-        queryKey: ['posts'],
-        queryFn: fetchPosts
+        enabled: !Number.isNaN(userId), //This enables query only if userId is a number. Meaning it will not make a queryFn call, if userId is NaN.
+        queryKey: ['users', userId, 'posts'],
+        queryFn: () => fetchPosts(userId)
     })
 
     return { data, error, isLoading }
