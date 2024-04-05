@@ -12,12 +12,13 @@ function Posts() {
             .then(res => res.data)
     }
 
-    const { data, error } = useQuery<Post[], Error>({
+    const { data, error, isLoading } = useQuery<Post[], Error>({
         queryKey: ['posts'],
         queryFn: fetchPosts
     })
 
-    if (error) return <p className="text-danger h1">{error.message}</p>
+    if (error) return <p className="text-danger text-center h1">{error.message}</p>
+    if (isLoading) return <p className="text-center h1">Loading ..</p>
 
     return (<>
         <div className="container mt-5">
