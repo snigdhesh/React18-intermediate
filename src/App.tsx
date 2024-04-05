@@ -1,5 +1,9 @@
+import Posts from "./components/Posts"
+
 function App(){
-  return (<><h1>App component works!</h1></>)
+  return (<>
+    <Posts/>
+  </>)
 }
 
 export default App
