@@ -1,16 +1,16 @@
+import React from "react";
 import { useState } from "react";
 import usePosts from "../hooks/usePosts";
 
 export interface PageQuery {
-    pageNumber: number;
     pageSize: number;
 }
 
 function Posts() {
 
-    const [pageQuery, setPageQuery] = useState({ pageNumber: 1, pageSize: 10 });
+    const [pageQuery, setPageQuery] = useState({ pageSize: 10 });
 
-    const { data, error, isLoading } = usePosts(pageQuery);
+    const { data, error, isLoading, fetchNextPage, isFetchingNextPage } = usePosts(pageQuery);
 
     if (error) return <p className="text-danger text-center h1">{error.message}</p>
     if (isLoading) return <p className="text-center h1">Loading ..</p>
@@ -18,13 +18,22 @@ function Posts() {
     return (<>
         <div className="container mt-5">
             <ul className="list-group">
-                {data?.map(post => <li className="list-group-item" key={post.id}>{post.id}. {post.title}</li>)}
+                {/* This is how we loop through nested objects. This is also loop in loop */}
+                {data?.pages.map((page, index) =>
+                    <React.Fragment key={index}>
+                        {page.map(post => <li className="list-group-item" key={post.id}>{post.id}. {post.title}</li>)}
+                    </React.Fragment>)}
             </ul>
-            <div className="row">
-                <div className="col-sm-1 mt-3"><button className="btn btn-info" disabled={pageQuery.pageNumber === 1} onClick={() => setPageQuery({ ...pageQuery, pageNumber: pageQuery.pageNumber - 1 })}>prev</button></div>
-                <div className="col-sm-1 mt-3"><button className="btn btn-info" disabled={pageQuery.pageNumber >= 10} onClick={() => setPageQuery({ ...pageQuery, pageNumber: pageQuery.pageNumber + 1 })}>next</button></div>
+            <div className="row mt-5">
+                <div className="col-sm-2">
+                    {/* This "fetchNextPage" refers to usePosts.ts > useInfiniteQuery() > getNextPageParam() */}
+                    <button className="btn btn-primary" onClick={() => fetchNextPage()} disabled={isFetchingNextPage}>
+                        {isFetchingNextPage ? 'Loading ...' : 'Load more'}
+                    </button>
+                </div>
             </div>
         </div>
+
     </>)
 }
 
