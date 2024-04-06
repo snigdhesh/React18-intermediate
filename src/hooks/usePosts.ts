@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { PageQuery } from "../components/Posts";
 
 interface Post {
     id: number;
@@ -7,20 +8,20 @@ interface Post {
 }
 
 
-function usePosts(userId: number | undefined) {
-    const fetchPosts = (userId: number | undefined) => {
+function usePosts(pageQuery: PageQuery) {
+    const fetchPosts = (pageQuery:PageQuery) => {
         return axios.get<Post[]>("https://jsonplaceholder.typicode.com/posts", {
             params: {
-                userId
+                _start: (pageQuery.pageNumber - 1) * pageQuery.pageSize,
+                _limit: pageQuery.pageSize
             }
         })
             .then(res => res.data)
     }
 
     const { data, error, isLoading } = useQuery<Post[], Error>({
-        enabled: !Number.isNaN(userId), //This enables query only if userId is a number. Meaning it will not make a queryFn call, if userId is NaN.
-        queryKey: ['users', userId, 'posts'],
-        queryFn: () => fetchPosts(userId)
+        queryKey: ['users', pageQuery, 'posts'],
+        queryFn: () => fetchPosts(pageQuery)
     })
 
     return { data, error, isLoading }

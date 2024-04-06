@@ -14,9 +14,6 @@
 #### How to plugin React-Query to react application?
 - `QueryClient` is the core object we use to manage and cache remote data.  
 
-
-
-
 `main.tsx`
 ```
   Import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
@@ -36,7 +33,7 @@
  - React-Query comes with React-devtools to monitor and debug our react query objects.
  - `npm install @tanstack/react-query-devtools@4.28`
 
-- How to use queryObject?
+#### How to use queryObject?
   - Hint: create interface > create state variable for that interface.
   - Example: 
   ```
@@ -49,7 +46,8 @@
     const [dummy, setDummy] = useState<DummyQuery>({} as DummyQuery)
   }
   ```
-- How to use useQuery({}) hook from `React-Query`
+
+#### How to use useQuery({}) hook from `React-Query` library.
   - Hint: Replace useEffect with userQuery and implement it's props.
   ```
     const queryObj = useQuery<Dummy>({
@@ -65,5 +63,3 @@
     queryObj.name
     queryObj.email
   ```
-- How to install `React dev tools`
-  - Hint: `npm i @tanstack/react-query-devtools@4.28`
