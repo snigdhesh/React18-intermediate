@@ -1,8 +1,9 @@
-import Posts from "./components/Posts"
+import GroceryList from "./components/GroceryList"
+
 
 function App(){
   return (<>
-    <Posts/>
+    <GroceryList/>
   </>)
 }
 
