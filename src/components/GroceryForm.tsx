@@ -46,6 +46,7 @@ const GroceryForm = () => {
                         <button className="btn btn-outline-info" type="submit">Add</button>
                     </div>
                 </div>
+                {addGrocery.error && <div className="alert alert-danger mt-3 mb-3">{addGrocery.error.name} : {addGrocery.error.message}</div>}
             </form>
         </div>
     )
