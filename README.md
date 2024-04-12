@@ -32,6 +32,14 @@
 #### What is `react-devtools` and how to install it?
  - React-Query comes with React-devtools to monitor and debug our react query objects.
  - `npm install @tanstack/react-query-devtools@4.28`
+ - Import `<ReactQueryDevTools/>`  
+
+   ```
+    <QueryClientProvider client={client}>
+      <App />
+      <ReactQueryDevtools />
+    </QueryClientProvider>
+    ```
 
 #### How to use queryObject?
   - Hint: create interface > create state variable for that interface.
