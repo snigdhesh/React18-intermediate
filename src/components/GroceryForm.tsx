@@ -1,12 +1,12 @@
 import { FormEvent, useRef } from "react"
-import useGroceries from "../hooks/useGroceries";
+import useAddGrocery from "../hooks/useAddGrocery";
 
 
 const GroceryForm = () => {
     const nameRef = useRef<HTMLInputElement>(null);
     const priceRef = useRef<HTMLInputElement>(null);
 
-    const { addGrocery } = useGroceries();
+    const { addGrocery } = useAddGrocery();
 
     const onFormSubmit = (event: FormEvent) => {
         if (nameRef.current && priceRef.current) {

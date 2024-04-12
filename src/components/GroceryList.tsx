@@ -1,11 +1,13 @@
 import useGroceries from "../hooks/useGroceries"
+import useRemoveGrocery from "../hooks/useRemoveGrocery";
 import GroceryForm from "./GroceryForm";
 
 
 const GroceryList = () => {
-    const { groceries, removeGrocery } = useGroceries();
-    let count = 1;    
-    
+    const { groceries } = useGroceries();
+    const { removeGrocery } = useRemoveGrocery();
+    let count = 1;
+
     return (
         <div className="container mt-5">
             <GroceryForm />
