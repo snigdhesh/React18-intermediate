@@ -1,10 +1,7 @@
-import GroceryList from "./components/GroceryList"
-
+import Counter from "./components/Counter"
 
 function App(){
-  return (<>
-    <GroceryList/>
-  </>)
+  return (<Counter/>)
 }
 
 export default App
