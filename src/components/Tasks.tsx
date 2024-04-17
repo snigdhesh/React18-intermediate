@@ -13,7 +13,6 @@ const Tasks = () => {
     }
     return (
         <>
-
             <div className="container mt-5">
                 <form onSubmit={(event) => onSubmit(event)}>
                     <div className="row">
