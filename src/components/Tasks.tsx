@@ -1,10 +1,10 @@
-import { FormEvent, useContext, useRef } from "react";
-import TaskContext from "../state-management/contexts/TaskContext";
+import { FormEvent, useRef } from "react";
+import useTasks from "../state-management/hooks/useTasks";
 
 const Tasks = () => {
     const taskRef = useRef<HTMLInputElement>(null);
     //const [tasks, dispatch] = useReducer(taskReducer, []);
-    const context = useContext(TaskContext)
+    const context = useTasks();
 
     const onSubmit = (event: FormEvent) => {
         if (taskRef.current && taskRef.current.value)
