@@ -1,4 +1,4 @@
-import { FormEvent, useContext, useReducer, useRef } from "react";
+import { FormEvent, useContext, useRef } from "react";
 import TaskContext from "./contexts/TaskContext";
 
 const Tasks = () => {
@@ -8,7 +8,7 @@ const Tasks = () => {
 
     const onSubmit = (event: FormEvent) => {
         if (taskRef.current && taskRef.current.value)
-            context.dispatch({ type: 'ADD', task: { id: context.tasks.length + 1, name: taskRef.current.value } })
+            context.taskDispatch({ type: 'ADD', task: { id: context.tasks.length + 1, name: taskRef.current.value } })
 
         event.preventDefault()
     }
@@ -29,7 +29,7 @@ const Tasks = () => {
                     <ul className="list-group">
                         {context.tasks.map(task => <li className="list-group-item" key={task.id} style={{ display: "flex", justifyContent: "space-between" }}>
                             {task.name}
-                            <button className="btn btn-outline-danger" onClick={() => context.dispatch({ type: 'DELETE', taskId: task.id })}>delete</button>
+                            <button className="btn btn-outline-danger" onClick={() => context.taskDispatch({ type: 'DELETE', taskId: task.id })}>delete</button>
                         </li>)}
                     </ul>
                 </div>
