@@ -1,8 +1,8 @@
 import { useReducer } from "react"
-import counterReducer from "../reducers/counterReducer"
+import counterReducer from "../state-management/reducers/counterReducer"
 
 const Counter = () => {
-    const [counter, dispatch] = useReducer(counterReducer,0)
+    const [counter, dispatch] = useReducer(counterReducer, 0)
 
     return (
         <>
@@ -12,8 +12,8 @@ const Counter = () => {
                 </div>
                 <div className="row">
                     <div className="col-6">
-                        <button className="btn btn-outline-primary ms-3" onClick={()=>dispatch({type: 'INCREMENT'})}>Increment</button>
-                        <button className="btn btn-outline-primary ms-3" onClick={()=> dispatch({type: 'RESET'})}>Reset</button>
+                        <button className="btn btn-outline-primary ms-3" onClick={() => dispatch({ type: 'INCREMENT' })}>Increment</button>
+                        <button className="btn btn-outline-primary ms-3" onClick={() => dispatch({ type: 'RESET' })}>Reset</button>
                     </div>
                 </div>
 

@@ -1,5 +1,5 @@
 import { FormEvent, useContext, useRef } from "react";
-import TaskContext from "./contexts/TaskContext";
+import TaskContext from "../state-management/contexts/TaskContext";
 
 const Tasks = () => {
     const taskRef = useRef<HTMLInputElement>(null);
