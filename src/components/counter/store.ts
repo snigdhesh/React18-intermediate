@@ -4,6 +4,9 @@ interface CounterStore{
     counter: number,
     increment: () => void;
     reset: () => void;
+
+    max: number;
+    resetMax: () => void;
 }
 
 const incrementCounter = (store: CounterStore) => {
@@ -21,10 +24,22 @@ const resetStore = () => {
 }
 
 
+const resetMax = () => {
+    const newStore = {
+        max: Math.floor(Math.random() * 100)
+    }
+    return newStore;
+}
+
+
+
 const useCounterStore =  create<CounterStore>(set => ({
     counter: 0,
     increment: () => set(store => incrementCounter(store)),
-    reset: () => set(resetStore)
+    reset: () => set(resetStore),
+
+    max: 10,
+    resetMax: () => set(resetMax)
 }))
 
 export default useCounterStore;
