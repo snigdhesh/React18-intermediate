@@ -1,3 +1,4 @@
+import Counter from "./components/counter/Counter"
 import NavBar from "./components/navbar/NavBar"
 import Tasks from "./components/Tasks"
 import AuthProvider from "./state-management/providers/AuthProvider"
@@ -10,6 +11,7 @@ function App() {
     <TaskProvider>
       <AuthProvider>
         <NavBar />
+        <Counter/>
         <Tasks />
       </AuthProvider>
     </TaskProvider>

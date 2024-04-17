@@ -71,3 +71,30 @@
     queryObj.name
     queryObj.email
   ```
+
+# Section 3
+
+#### What is a reducer?
+  - We can maintain state modifications (based on conditions) in a centralized file, and we expose that file as `reducer`
+  - We use that reducer in a hook (useReducer) - which acts similar to `useState`
+  - Hint: Go through commits, to find how to use reducer.
+
+#### What is context?
+  - It's like a global object to maintain state (data for different classes)
+  - We use `React.createContext` and pass all necessary data into this.
+  - We can use `useContext` hook to access this data again in any other file.
+
+#### What is a provider?
+  - It's a wrapper `.tsx` file around context.
+
+#### What is zustand?
+  - It's a `client-state management library`. Other alternatives include libraries like Redux.  
+  - Meaning it's easy to do CRUD operations on client-state, as `zustand` caches client-state.
+  - Server-state is maintained by library called `React-Query`
+
+#### What is the difference between client-state and server-state?
+  - `Server-state` is data coming from API.
+  - `Client-state` is data we transfer from one file to another in a react-app.
+
+#### How to install zustand?
+  - npm i zustand@4.3.7
