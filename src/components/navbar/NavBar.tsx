@@ -1,12 +1,12 @@
 
 import { useContext } from 'react'
-import styles from './NavBar.module.css'
 import TaskContext from '../../state-management/contexts/TaskContext'
-import AuthContext from '../../state-management/contexts/AuthContext'
+import useAuth from '../../state-management/hooks/useAuth'
+import styles from './NavBar.module.css'
 
 const NavBar = () => {
   const { tasks } = useContext(TaskContext);
-  const { username, authDispatch } = useContext(AuthContext);
+  const { username, authDispatch } = useAuth()
 
   return (
     <div className={[styles.navbar, "bg", "bg-primary"].join(" ")}>
