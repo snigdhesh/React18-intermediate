@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "./Layout";
-import UserDetailPage from "./Users/UserDetailPage";
-import UserList from "./Users/UserList";
-import HomePage from "./HomePage";
-import UsersLayout from "./Users/UsersLayout";
 import ErrorPage from "./ErrorPage";
+import HomePage from "./HomePage";
+import Layout from "./Layout";
+import Login from "./Login";
+import PrivateRoutes from "./PrivateRoutes";
+import UserDetailPage from "./Users/UserDetailPage";
+import UsersLayout from "./Users/UsersLayout";
 
 
 const routes = [
@@ -14,6 +15,12 @@ const routes = [
         errorElement: <ErrorPage />,
         children: [
             { index: true, element: <HomePage /> }, /* index:true     is same as   path: ''   */
+            {path: 'login', element: <Login/>}
+    ]
+    },
+    {
+        element: <PrivateRoutes/>,
+        children: [
             {
                 path: 'users',
                 element: <UsersLayout />,
