@@ -2,9 +2,16 @@ import { Link } from "react-router-dom"
 
 const UserList = () => {
     const users = [
-        { id: 1, name: "Mosh" },
-        { id: 2, name: "John" },
-        { id: 3, name: "Harry" }
+        { id: 1, name: 'John' },
+        { id: 2, name: 'Doe'},
+        { id: 3, name: 'Jane' },
+        { id: 4, name: 'Smith' },
+        { id: 5, name: 'Alex'},
+        { id: 6, name: 'Max'},
+        { id: 7, name: 'Sam'},
+        { id: 8, name: 'Tom'},
+        { id: 9, name: 'Jerry'},
+        { id: 10, name: 'Mickey'}
     ]
     return (
         <div>

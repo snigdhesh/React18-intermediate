@@ -4,12 +4,14 @@ import UserDetailPage from "./Users/UserDetailPage";
 import UserList from "./Users/UserList";
 import HomePage from "./HomePage";
 import UsersLayout from "./Users/UsersLayout";
+import ErrorPage from "./ErrorPage";
 
 
 const routes = [
     {
         path: '/',
         element: <Layout />,
+        errorElement: <ErrorPage />,
         children: [
             { index: true, element: <HomePage /> }, /* index:true     is same as   path: ''   */
             {
