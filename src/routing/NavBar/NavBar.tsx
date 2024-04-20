@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
+import styles from './NavBar.module.css'
 
 const NavBar = () => {
     return (
@@ -10,10 +11,10 @@ const NavBar = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item active">
-                        <Link className="nav-link" to="/">Home</Link>
+                        <NavLink className={({isActive})=> isActive ? [styles.activeLink,"active","nav-link"].join(" ") : "nav-link"} to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/users">Users</Link>
+                        <NavLink className={({isActive})=> isActive ? [styles.activeLink,"active","nav-link"].join(" ") : "nav-link"} to="/users">Users</NavLink>
                     </li>
                 </ul>
             </div>
