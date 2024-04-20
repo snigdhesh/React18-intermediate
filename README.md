@@ -98,3 +98,6 @@
 
 #### How to install zustand?
   - npm i zustand@4.3.7
+
+#### How to install routing library?
+  - npm i react-router-dom
